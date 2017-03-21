@@ -12,11 +12,12 @@ tags:
   - name: Delete
   - name: Health
 paths:
-  /v1/{channelName} (when httpFormat = json):
+  /v1/{channelName} (httpFormat = json):
     post:
       tags:
         - Write
-      summary: Write messages to a channel.
+        - httpFormat = json
+      summary: Write messages to a channel (httpFormat = json)
       description: |
         Documents how to write to a channel when `writeSettings.httpFormat` is set to `json` (default).
       parameters:
@@ -45,7 +46,8 @@ paths:
     get:
       tags:
         - Read
-      summary: Read messages from a channel.
+        - httpFormat = json
+      summary: Read messages from a channel (httpFormat = json)
       description: |
         Documents how to retrieve messages from a channel when `readSettings.httpFormat` is set to `json` (default).
       parameters:
@@ -70,11 +72,12 @@ paths:
         default:
           $ref: '#/responses/DefaultResponse'
 
-  /v1/{channelName} (when httpFormat = plaintext):
+  /v1/{channelName} (httpFormat = plaintext):
     post:
       tags:
         - Write
-      summary: Write messages to a channel.
+        - httpFormat = plaintext
+      summary: Write messages to a channel (httpFormat = plaintext)
       description: |
         Documents how to write to a channel when `writeSettings.httpFormat` is set to `plaintext`.
 
@@ -115,7 +118,8 @@ paths:
     get:
       tags:
         - Read
-      summary: Read messages from a channel.
+        - httpFormat = plaintext
+      summary: Read messages from a channel (httpFormat = plaintext)
       description: |
         Documents how to retrieve messages from a channel when `readSettings.httpFormat` is set to `plaintext`.
 
@@ -150,11 +154,12 @@ paths:
         default:
           $ref: '#/responses/DefaultResponse'
 
-  /v1/{channelName} (Streaming):
+  /v1/{channelName}:
     get:
       tags:
         - Read
-      summary: Read messages from a channel (Streamed).
+        - Streaming
+      summary: Read messages from a channel (Streaming)
       description: |
         This is a special use case.
 
@@ -197,7 +202,7 @@ paths:
     get:
       tags:
         - Count
-      summary: Returns the number of messages in the channel.
+      summary: Returns the number of messages in the channel
       description: Returns the number of messages in the channel.
       parameters:
         - $ref: '#/parameters/ChannelName'
@@ -217,7 +222,7 @@ paths:
     delete:
       tags:
         - Delete
-      summary: Deletes all messages from the channel.
+      summary: Deletes all messages from the channel
       description: Deletes all messages from the channel.
       parameters:
         - $ref: '#/parameters/ChannelName'
@@ -237,7 +242,7 @@ paths:
     get:
       tags:
         - Health
-      summary: Checks the health of a single channel.
+      summary: Checks the health of a single channel
       description: |
         Checks the health of a single channel.
 
@@ -260,7 +265,7 @@ paths:
     get:
       tags:
         - Health
-      summary: Checks the health of the whole system.
+      summary: Checks the health of the whole system
       description: |
         Checks the health of the whole system. All the channels will be checked.
 
