@@ -197,6 +197,24 @@ paths:
           $ref: '#/responses/Error500'
         default:
           $ref: '#/responses/DefaultResponse'
+    delete:
+      tags:
+        - Delete
+      summary: Deletes all messages from the channel
+      description: Deletes all messages from the channel.
+      parameters:
+        - $ref: '#/parameters/ChannelName'
+      produces:
+        - application/json
+      responses:
+        200:
+          $ref: '#/responses/DefaultResponse'
+        400:
+          $ref: '#/responses/Error400'
+        500:
+          $ref: '#/responses/Error500'
+        default:
+          $ref: '#/responses/DefaultResponse'
 
   /v1/{channelName}/count:
     get:
@@ -211,26 +229,6 @@ paths:
       responses:
         200:
           $ref: '#/responses/Count'
-        400:
-          $ref: '#/responses/Error400'
-        500:
-          $ref: '#/responses/Error500'
-        default:
-          $ref: '#/responses/DefaultResponse'
-
-  /v1/{channelName}:
-    delete:
-      tags:
-        - Delete
-      summary: Deletes all messages from the channel
-      description: Deletes all messages from the channel.
-      parameters:
-        - $ref: '#/parameters/ChannelName'
-      produces:
-        - application/json
-      responses:
-        200:
-          $ref: '#/responses/DefaultResponse'
         400:
           $ref: '#/responses/Error400'
         500:
