@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: Newque HTTP API
   description: Fast modular message broker. https://github.com/newque/newque
-  version: '0.0.3'
+  version: '0.0.6'
 schemes:
   - http
 tags:
